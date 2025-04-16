@@ -1,0 +1,112 @@
+body {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.one,
+.two,
+.three,
+.four {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.white,
+.grey,
+.black {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% / 3);
+    box-sizing: border-box;
+}
+
+.white {
+    background-color: #ffffff;
+}
+
+.grey {
+    background-color: #585858;
+}
+
+.black {
+    background-color: #292929;
+}
+
+.spinnerContainer {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+	width: 40px;
+	padding: 8px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: #1fa9f3;
+	--_m: 
+	  conic-gradient(#0000 10%,#000),
+	  linear-gradient(#000 0 0) content-box;
+	-webkit-mask: var(--_m);
+			mask: var(--_m);
+	-webkit-mask-composite: source-out;
+			mask-composite: subtract;
+	animation: loadingSpinner 1s infinite linear;
+}
+
+@keyframes loadingSpinner {
+	to {
+		transform: rotate(1turn)
+	}
+}
+
+.loaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.loader {
+    width: 30px;
+    height: 30px;
+    --c:no-repeat linear-gradient(#1fa9f3 0 0);
+    background: var(--c),var(--c),var(--c),var(--c);
+    background-size: 21px 21px;
+    animation: loadingSquare 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+
+@keyframes loadingSquare {
+  0%   {
+      background-position: 0 0, 100% 0,100% 100%, 0 100%;
+    }
+  33%  {
+      background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+      width: 50px;
+      height: 50px;
+    }
+  66%  {
+      background-position: 100% 0, 100% 100%, 0 100%, 0 0;
+      width: 50px;
+      height: 50px;
+    }
+  100% {
+      background-position: 100% 0, 100% 100%, 0 100%, 0 0;
+    }
+}
